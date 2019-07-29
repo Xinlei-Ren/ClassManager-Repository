@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../layui/css/layui.css"/>
+    <script type="text/javascript" src="../../layui/lay/modules/layer.js"></script>
+    <script type="text/javascript" src="../../layui/layui.js"></script>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    <script>
+        layui.use('table', function () {
+            let table = layui.table;
+            layer.msg('学生列表页面');
+        });
+
+        function openView() {
+            layer.open({
+                type: 2,
+                title: '学生详情',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['50%', '30%'],
+                content: './student_view.html' //iframe的url
+            });
+        }
+
+        function openAdd() {
+            layer.open({
+                type: 2,
+                title: '添加学生',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['50%', '90%'],
+                content: './student_add.html' //iframe的url
+            });
+        }
+    </script>
+
+</head>
+<body>
+<div>
+    <div class="layui-btn-group">
+        <button type="button" class="layui-btn layui-btn-primary layui-btn-sm" onclick="openAdd()">
+            <i class="layui-icon">&#xe654;&nbsp;添加</i>
+        </button>
+        <button type="button" class="layui-btn layui-btn-primary layui-btn-sm">
+            <i class="layui-icon">&#xe640;&nbsp;删除</i>
+        </button>
+    </div>
+    <table class="layui-table" lay-data="{height: 'full-50', cellMinWidth: 80, page: true, limit:30}">
+        <thead>
+        <tr>
+            <th lay-data="{type:'checkbox'}"></th>
+            <th lay-data="{field:'stuId', width:100, align: 'center'}">学生学号</th>
+            <th lay-data="{field:'stuName', width:100, align: 'center'}">学生姓名</th>
+            <th lay-data="{field:'stuSex', width:100, align: 'center'}">学生性别</th>
+            <th lay-data="{field:'stuLoginName', width:150, align: 'center'}">用户名</th>
+            <th lay-data="{field:'stuBirthdayTime', minWidth: 150, align: 'center'}">学生生日</th>
+            <th lay-data="{field:'stuEnrolTime', align: 'center'}">入学日期</th>
+            <th lay-data="{field:'proId', minWidth: 100, align: 'center'}">所在省</th>
+            <th lay-data="{field:'citId', minWidth: 100, align: 'center'}">所在市</th>
+            <th lay-data="{field:'option', minWidth: 100, align: 'center'}">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>张三</td>
+            <td>女</td>
+            <td>zhangsan</td>
+            <td>2019-02-21</td>
+            <td>1998-07-07</td>
+            <td>江苏省</td>
+            <td>宿迁市</td>
+            <td>
+                <button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail" onclick="openView()">查看手机号码</button>
+                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    $.ajax({
+        url:"",
+        type:"",
+        statusCode:{
+            200:function () {
+
+            },
+            500:function () {
+                alert("服务器异常")
+            }
+        }
+    })
+</script>
+</body>
+</html>
