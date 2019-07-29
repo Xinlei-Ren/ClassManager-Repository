@@ -1,8 +1,15 @@
 package com.czxy.service.impl;
 
+import com.czxy.dao.ContactsMapper;
+import com.czxy.domain.Contacts;
 import com.czxy.service.ContactsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.entity.Example;
+
+import javax.xml.ws.soap.Addressing;
+import java.util.List;
 
 /**
  * @author xixilidemeilichuanshuo
@@ -13,4 +20,17 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class ContactsServiceImpl implements ContactsService {
 
+    /*联系人映射器*/
+    @Autowired
+    private ContactsMapper contactsMapper;
+
+    /**
+     * 查询所有联系人
+     * @param state  0学生 1老师
+     * @return
+     */
+    @Override
+    public List<Contacts> findContacts(Integer state) {
+        return contactsMapper.findContacts(state);
+    }
 }

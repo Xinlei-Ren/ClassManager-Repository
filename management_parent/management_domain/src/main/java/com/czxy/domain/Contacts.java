@@ -1,44 +1,77 @@
 package com.czxy.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * -- 联系方式
+ * 联系方式
+ *
+ * @author xixilidemeilichuanshuo
+ * @version 1.0
+ * @date 2019.7.29 18:23
  */
+@Entity
+@Table(name = "contacts")
 public class Contacts {
- @Id
-    private Integer id;          //编号
-    private String name;      // 姓名
-    private String userName;  //登录名称
-    private String password; //登录密码
-    private String telephone;   //联系方式
-    private Date registrationDate; //注册时间
-    private Date birthdayDate;//生日
-    private String srcImg;  //头像
-    private Integer pid; //职位id
-    private Integer state; //状态
-    private Integer proId; //省份 id
-    private Integer citId; //城市 id
-    private Integer disId; //区县 id
+    @Id
+    /*编号*/
+    private Integer id;
+    /*姓名*/
+    private String name;
+    /*登录名称*/
+    private String userName;
+    /*登录密码*/
+    private String password;
+    /*联系方式*/
+    private String telephone;
+    /*注册时间*/
+    private Date registrationDate;
+    /*性别*/
+    private String sex;
+    /*生日*/
+    private Date birthdayDate;
+    /*头像*/
+    private String srcImg;
+    /*职位id*/
+    private Integer pid;
+    /*状态*/
+    private Integer state;
+    /*省份 id*/
+    private Integer proId;
+    /*城市 id*/
+    private Integer citId;
+    /*区县 id*/
+    private Integer disId;
+    /*省份*/
+    private Pcd byProId;
+    /*城市*/
+    private Pcd byCitId;
+    /*区县*/
+    private Pcd byDisId;
 
-    @Override
-    public String toString() {
-        return "Contacts{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", registrationDate=" + registrationDate +
-                ", birthdayDate=" + birthdayDate +
-                ", srcImg='" + srcImg + '\'' +
-                ", pid=" + pid +
-                ", state=" + state +
-                ", proId=" + proId +
-                ", citId=" + citId +
-                ", disId=" + disId +
-                '}';
+    public Contacts() {
+    }
+
+    public Contacts(Integer id, String name, String userName, String password, String telephone, Date registrationDate, String sex, Date birthdayDate, String srcImg, Integer pid, Integer state, Integer proId, Integer citId, Integer disId, Pcd byProId, Pcd byCitId, Pcd byDisId) {
+        this.id = id;
+        this.name = name;
+        this.userName = userName;
+        this.password = password;
+        this.telephone = telephone;
+        this.registrationDate = registrationDate;
+        this.sex = sex;
+        this.birthdayDate = birthdayDate;
+        this.srcImg = srcImg;
+        this.pid = pid;
+        this.state = state;
+        this.proId = proId;
+        this.citId = citId;
+        this.disId = disId;
+        this.byProId = byProId;
+        this.byCitId = byCitId;
+        this.byDisId = byDisId;
     }
 
     public Integer getId() {
@@ -87,6 +120,14 @@ public class Contacts {
 
     public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public Date getBirthdayDate() {
@@ -145,22 +186,50 @@ public class Contacts {
         this.disId = disId;
     }
 
-    public Contacts() {
+    public Pcd getByProId() {
+        return byProId;
     }
 
-    public Contacts(Integer id, String name, String userName, String password, String telephone, Date registrationDate, Date birthdayDate, String srcImg, Integer pid, Integer state, Integer proId, Integer citId, Integer disId) {
-        this.id = id;
-        this.name = name;
-        this.userName = userName;
-        this.password = password;
-        this.telephone = telephone;
-        this.registrationDate = registrationDate;
-        this.birthdayDate = birthdayDate;
-        this.srcImg = srcImg;
-        this.pid = pid;
-        this.state = state;
-        this.proId = proId;
-        this.citId = citId;
-        this.disId = disId;
+    public void setByProId(Pcd byProId) {
+        this.byProId = byProId;
+    }
+
+    public Pcd getByCitId() {
+        return byCitId;
+    }
+
+    public void setByCitId(Pcd byCitId) {
+        this.byCitId = byCitId;
+    }
+
+    public Pcd getByDisId() {
+        return byDisId;
+    }
+
+    public void setByDisId(Pcd byDisId) {
+        this.byDisId = byDisId;
+    }
+
+    @Override
+    public String toString() {
+        return "Contacts{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", registrationDate=" + registrationDate +
+                ", sex='" + sex + '\'' +
+                ", birthdayDate=" + birthdayDate +
+                ", srcImg='" + srcImg + '\'' +
+                ", pid=" + pid +
+                ", state=" + state +
+                ", proId=" + proId +
+                ", citId=" + citId +
+                ", disId=" + disId +
+                ", byProId=" + byProId +
+                ", byCitId=" + byCitId +
+                ", byDisId=" + byDisId +
+                '}';
     }
 }

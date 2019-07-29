@@ -1,16 +1,19 @@
 package com.czxy.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * 省市区
  */
+@Entity
+@Table(name = "pcd")
 public class Pcd {
-@Id
-  private Integer id;
-  private Integer pid; //上级id
-  private String name; //名称
-
+    @Id
+    private Integer id;
+    private Integer pid; //上级id
+    private String name; //名称
     @Override
     public String toString() {
         return "Pcd{" +
