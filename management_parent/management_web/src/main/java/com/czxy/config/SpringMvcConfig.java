@@ -20,7 +20,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
     private UserInterceptor userInterceptor;
 
     /**
-     * 注册登录器
+     * 注册拦截器
      * @param registry
      */
     @Override

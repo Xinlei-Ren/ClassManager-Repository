@@ -22,6 +22,7 @@ public class UserInterceptor implements HandlerInterceptor {
         if(s.endsWith("register.html")|| s.contains("login")||s.endsWith("js")||s.contains("layui")||s.contains("img") || s.endsWith("switch.html")||s.endsWith("css")){
             return true;
         }
+        //获取session中的数据判断是否为null
         Contacts contacts = (Contacts) request.getSession().getAttribute("contacts");
         if(contacts==null){
             response.sendRedirect("/htm/contracts/switch.html");
