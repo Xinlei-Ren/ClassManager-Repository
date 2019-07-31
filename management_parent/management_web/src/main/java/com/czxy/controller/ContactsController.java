@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 /**
  * 联系控制器
@@ -22,6 +24,24 @@ public class ContactsController {
     @Autowired
     private ContactsService contactsService;
 
+    /**
+     * 完善信息
+     * @param contacts
+     * @param request
+     * @return
+     */
+    @PutMapping("/setContacts")
+    public ResponseEntity<String>setContacts(Contacts contacts, HttpServletRequest request){
+        try {
+            Contacts c = (Contacts) request.getSession().getAttribute("contacts");
+            contacts.setId(c.getId());
+            contactsService.setContacts(contacts);
+            return new ResponseEntity<>("完善成功",HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     /**
      * 查询所有联系人
      * @param state 0学生 1老师
@@ -39,7 +59,7 @@ public class ContactsController {
     }
 
     /**
-     * 查看手机号码
+     * 查看
      * @param id
      * @return
      */

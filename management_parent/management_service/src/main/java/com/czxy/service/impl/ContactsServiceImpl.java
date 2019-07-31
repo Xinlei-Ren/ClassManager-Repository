@@ -53,4 +53,13 @@ public class ContactsServiceImpl implements ContactsService {
     public void setContactsById(Integer id) {
         contactsMapper.setContactsById(id);
     }
+
+    /**
+     * 完善信息
+     * @param contacts
+     */
+    @Override
+    public void setContacts(Contacts contacts) {
+        contactsMapper.updateByPrimaryKey(contacts);
+    }
 }

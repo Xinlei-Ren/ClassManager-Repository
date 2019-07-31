@@ -33,4 +33,10 @@ public interface ContactsService {
      */
     void setContactsById(Integer id);
 
+    /**
+     * 完善信息
+     * @param contacts
+     */
+    void setContacts(Contacts contacts);
+
 }
