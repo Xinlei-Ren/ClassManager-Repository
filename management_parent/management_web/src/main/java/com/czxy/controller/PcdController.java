@@ -24,7 +24,7 @@ public class PcdController {
     private PcdService pcdService;
 
     /**
-     * 省
+     * 查询所有省份信息
      * @return
      */
     @GetMapping("/findP")
@@ -38,7 +38,7 @@ public class PcdController {
         }
     }
     /**
-     * 市区
+     * 根据id查询市区信息
      * @param id
      * @return
      */
