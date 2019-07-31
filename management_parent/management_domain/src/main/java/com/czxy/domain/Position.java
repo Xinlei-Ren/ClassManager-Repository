@@ -1,11 +1,12 @@
 package com.czxy.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
  * 职位表
  */
-
+@Entity
 public class Position {
 @Id
   private Integer pid;//职位id

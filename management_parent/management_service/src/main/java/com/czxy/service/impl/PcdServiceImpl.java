@@ -18,11 +18,12 @@ import java.util.List;
 @Transactional(rollbackFor = Exception.class)
 public class PcdServiceImpl implements PcdService {
 
+    /*城市映射器*/
     @Autowired
     private PcdMapper pcdMapper;
 
     /**
-     * 省
+     * 查询所有省份信息
      * @return
      */
     @Override
@@ -31,7 +32,8 @@ public class PcdServiceImpl implements PcdService {
     }
 
     /**
-     * 市区
+     * 根据id查询市，区信息
+     * @param id
      * @return
      */
     @Override

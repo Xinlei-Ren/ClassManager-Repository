@@ -1,10 +1,12 @@
 package com.czxy.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * --  学校
+ * 学校
  */
+@Entity
 public class School {
     @Id
     private Integer schId; //学校id
