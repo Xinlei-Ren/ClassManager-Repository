@@ -21,6 +21,7 @@ import java.io.IOException;
 @RequestMapping("/user")
 public class UserController {
 
+    /*用户服务*/
     @Resource
     private UserService userService;
 
@@ -44,7 +45,6 @@ public class UserController {
             e.printStackTrace();
             return  new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
 
     /**
