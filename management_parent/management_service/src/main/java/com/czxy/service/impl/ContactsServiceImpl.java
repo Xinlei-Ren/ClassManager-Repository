@@ -33,4 +33,14 @@ public class ContactsServiceImpl implements ContactsService {
     public List<Contacts> findContacts(Integer state) {
         return contactsMapper.findContacts(state);
     }
+
+    /**
+     * 查看手机号码
+     * @param id
+     * @return
+     */
+    @Override
+    public Contacts findContactsById(Integer id) {
+        return contactsMapper.selectByPrimaryKey(id);
+    }
 }

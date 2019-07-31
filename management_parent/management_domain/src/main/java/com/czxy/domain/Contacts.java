@@ -43,6 +43,8 @@ public class Contacts {
     private Integer citId;
     /*区县 id*/
     private Integer disId;
+    /*删除状态*/
+    private Integer delStatus;
     /*省份*/
     private Pcd byProId;
     /*城市*/
@@ -53,7 +55,39 @@ public class Contacts {
     public Contacts() {
     }
 
-    public Contacts(Integer id, String name, String userName, String password, String telephone, Date registrationDate, String sex, Date birthdayDate, String srcImg, Integer pid, Integer state, Integer proId, Integer citId, Integer disId, Pcd byProId, Pcd byCitId, Pcd byDisId) {
+    public Integer getDelStatus() {
+        return delStatus;
+    }
+
+    public void setDelStatus(Integer delStatus) {
+        this.delStatus = delStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Contacts{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", registrationDate=" + registrationDate +
+                ", sex='" + sex + '\'' +
+                ", birthdayDate=" + birthdayDate +
+                ", srcImg='" + srcImg + '\'' +
+                ", pid=" + pid +
+                ", state=" + state +
+                ", proId=" + proId +
+                ", citId=" + citId +
+                ", disId=" + disId +
+                ", delStatus=" + delStatus +
+                ", byProId=" + byProId +
+                ", byCitId=" + byCitId +
+                ", byDisId=" + byDisId +
+                '}';
+    }
+
+    public Contacts(Integer id, String name, String userName, String password, String telephone, Date registrationDate, String sex, Date birthdayDate, String srcImg, Integer pid, Integer state, Integer proId, Integer citId, Integer disId, Integer delStatus, Pcd byProId, Pcd byCitId, Pcd byDisId) {
         this.id = id;
         this.name = name;
         this.userName = userName;
@@ -68,6 +102,7 @@ public class Contacts {
         this.proId = proId;
         this.citId = citId;
         this.disId = disId;
+        this.delStatus = delStatus;
         this.byProId = byProId;
         this.byCitId = byCitId;
         this.byDisId = byDisId;
@@ -209,26 +244,4 @@ public class Contacts {
         this.byDisId = byDisId;
     }
 
-    @Override
-    public String toString() {
-        return "Contacts{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", registrationDate=" + registrationDate +
-                ", sex='" + sex + '\'' +
-                ", birthdayDate=" + birthdayDate +
-                ", srcImg='" + srcImg + '\'' +
-                ", pid=" + pid +
-                ", state=" + state +
-                ", proId=" + proId +
-                ", citId=" + citId +
-                ", disId=" + disId +
-                ", byProId=" + byProId +
-                ", byCitId=" + byCitId +
-                ", byDisId=" + byDisId +
-                '}';
-    }
 }

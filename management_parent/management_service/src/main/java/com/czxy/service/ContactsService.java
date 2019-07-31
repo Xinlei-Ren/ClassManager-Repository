@@ -17,4 +17,12 @@ public interface ContactsService {
      * @return
      */
     List<Contacts> findContacts(Integer state);
+
+
+    /**
+     * 查看手机号码
+     * @param id
+     * @return
+     */
+    Contacts findContactsById(Integer id);
 }

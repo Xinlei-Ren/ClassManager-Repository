@@ -13,7 +13,7 @@ import java.util.List;
  */
 @org.apache.ibatis.annotations.Mapper
 public interface ContactsMapper extends Mapper<Contacts> {
-    @Select("select * from contacts where state=#{state}")
+    @Select("select * from contacts where state=#{state} and del_status=0")
     @Results({
             @Result(property = "byProId",one = @One(select = "com.czxy.dao.PcdMapper.findPcdById"),column = "pro_id"),
             @Result(property = "byCitId",one = @One(select = "com.czxy.dao.PcdMapper.findPcdById"),column = "cit_id"),
