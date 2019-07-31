@@ -20,6 +20,7 @@ import java.util.List;
 @RequestMapping("/pcd")
 public class PcdController {
 
+    /*城市服务*/
     @Autowired
     private PcdService pcdService;
 
@@ -38,7 +39,7 @@ public class PcdController {
         }
     }
     /**
-     * 根据id查询市区信息
+     * 根据id查询市，区信息
      * @param id
      * @return
      */
