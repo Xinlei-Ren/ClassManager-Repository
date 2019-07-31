@@ -1,5 +1,4 @@
 package com.czxy.controller;
-
 import com.czxy.domain.Contacts;
 import com.czxy.service.ContactsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
-
 /**
  * 联系控制器
- *
  * @author xixilidemeilichuanshuo
  * @version 1.0
  * @date 2019.7.29 18:23
@@ -32,7 +28,6 @@ public class ContactsController {
      */
     @GetMapping("/showContacts")
     public ResponseEntity<List<Contacts>> showContacts(Integer state) {
-        System.out.println(state);
         try {
             List<Contacts> contactsList = contactsService.findContacts(state);
             return new ResponseEntity<>(contactsList, HttpStatus.OK);
