@@ -24,7 +24,6 @@ public interface UserMapper extends Mapper<Contacts> {
     Contacts login(Contacts contacts);
     /**
      * 用户名校验
-     *
      * @param username
      * @return
      */

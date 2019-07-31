@@ -21,7 +21,6 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 注册
-     *
      * @param contacts
      */
     @Override
@@ -32,7 +31,6 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 登录
-     *
      * @param contacts
      * @return
      */
@@ -43,7 +41,6 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 用户名校验
-     *
      * @param username
      * @return
      */

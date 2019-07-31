@@ -55,8 +55,19 @@ public class ContactsController {
     }
 
 
+    /**
+     * 修改联系人删除状态  del_status=1 删除
+     * @param id
+     * @return
+     */
     @PutMapping("/deleteContacts")
-    public ResponseEntity<Void>deleteContacts(Integer id){
-      return null;
+    public ResponseEntity<String>deleteContacts(Integer id){
+        try {
+            contactsService.setContactsById(id);
+            return new ResponseEntity<>("删除成功",HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

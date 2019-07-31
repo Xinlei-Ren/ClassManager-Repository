@@ -49,14 +49,12 @@ public class UserController {
 
     /**
      * 注册
-     *
      * @param file
      * @param contacts
      * @return
      */
     @PostMapping("/addContacts")
     public ResponseEntity<Void> addContacts(MultipartFile file, Contacts contacts) {
-
         try {
             //获取图片路径
             String originalFilename = file.getOriginalFilename();
@@ -71,7 +69,6 @@ public class UserController {
             e.printStackTrace();
             return  new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
 
 
@@ -99,5 +96,4 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 }

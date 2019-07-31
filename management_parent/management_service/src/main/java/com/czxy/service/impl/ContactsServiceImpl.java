@@ -43,4 +43,14 @@ public class ContactsServiceImpl implements ContactsService {
     public Contacts findContactsById(Integer id) {
         return contactsMapper.selectByPrimaryKey(id);
     }
+
+    /**
+     * 修改联系人删除状态
+     * @param id
+     * @return
+     */
+    @Override
+    public void setContactsById(Integer id) {
+        contactsMapper.setContactsById(id);
+    }
 }

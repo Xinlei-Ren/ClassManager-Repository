@@ -25,4 +25,12 @@ public interface ContactsService {
      * @return
      */
     Contacts findContactsById(Integer id);
+
+    /**
+     * 修改联系人删除状态 del_status=1 删除
+     * @param id
+     * @return
+     */
+    void setContactsById(Integer id);
+
 }
