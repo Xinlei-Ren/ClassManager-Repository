@@ -2,6 +2,7 @@ package com.czxy.dao;
 
 import com.czxy.domain.Contacts;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
  * @version 1.0
  * @date 2019.7.29 18:26
  */
+@Repository
 @org.apache.ibatis.annotations.Mapper
 public interface ContactsMapper extends Mapper<Contacts> {
     /**
