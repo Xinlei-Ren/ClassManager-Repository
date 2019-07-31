@@ -3,7 +3,7 @@ package com.czxy.dao;
 import com.czxy.domain.Pcd;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
@@ -13,6 +13,7 @@ import java.util.List;
  * @version 1.0
  * @date 2019.7.29 21:03
  */
+@Repository
 @org.apache.ibatis.annotations.Mapper
 public interface PcdMapper extends Mapper<Pcd> {
 
