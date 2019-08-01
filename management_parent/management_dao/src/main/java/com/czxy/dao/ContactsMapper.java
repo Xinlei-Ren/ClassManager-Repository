@@ -36,6 +36,6 @@ public interface ContactsMapper extends Mapper<Contacts> {
      * @param id
      * @return
      */
-    @Update("update contacts set del_status=1 where id=#{id};")
+    @Update("update contacts set del_status=1 where id=#{id}")
     void setContactsById(@Param("id")Integer id);
 }
