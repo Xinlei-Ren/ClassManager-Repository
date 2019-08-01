@@ -45,6 +45,8 @@ public class Contacts {
     private Integer disId;
     /*删除状态*/
     private Integer delStatus;
+    /*拼音首字母*/
+    private String initial;
     /*省份*/
     private Pcd byProId;
     /*城市*/
@@ -61,6 +63,28 @@ public class Contacts {
 
     public void setDelStatus(Integer delStatus) {
         this.delStatus = delStatus;
+    }
+
+    public Contacts(Integer id, String name, String userName, String password, String telephone, Date registrationDate, String sex, Date birthdayDate, String srcImg, Integer pid, Integer state, Integer proId, Integer citId, Integer disId, Integer delStatus, String initial, Pcd byProId, Pcd byCitId, Pcd byDisId) {
+        this.id = id;
+        this.name = name;
+        this.userName = userName;
+        this.password = password;
+        this.telephone = telephone;
+        this.registrationDate = registrationDate;
+        this.sex = sex;
+        this.birthdayDate = birthdayDate;
+        this.srcImg = srcImg;
+        this.pid = pid;
+        this.state = state;
+        this.proId = proId;
+        this.citId = citId;
+        this.disId = disId;
+        this.delStatus = delStatus;
+        this.initial = initial;
+        this.byProId = byProId;
+        this.byCitId = byCitId;
+        this.byDisId = byDisId;
     }
 
     @Override
@@ -81,10 +105,19 @@ public class Contacts {
                 ", citId=" + citId +
                 ", disId=" + disId +
                 ", delStatus=" + delStatus +
+                ", initial='" + initial + '\'' +
                 ", byProId=" + byProId +
                 ", byCitId=" + byCitId +
                 ", byDisId=" + byDisId +
                 '}';
+    }
+
+    public String getInitial() {
+        return initial;
+    }
+
+    public void setInitial(String initial) {
+        this.initial = initial;
     }
 
     public Contacts(Integer id, String name, String userName, String password, String telephone, Date registrationDate, String sex, Date birthdayDate, String srcImg, Integer pid, Integer state, Integer proId, Integer citId, Integer disId, Integer delStatus, Pcd byProId, Pcd byCitId, Pcd byDisId) {
