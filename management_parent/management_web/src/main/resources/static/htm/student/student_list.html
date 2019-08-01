@@ -9,8 +9,21 @@
     <link rel="stylesheet" href="../../layui/css/layui.css"/>
     <script type="text/javascript" src="../../layui/lay/modules/layer.js"></script>
     <script type="text/javascript" src="../../layui/layui.js"></script>
+    <script src="../../js/jquery-3.4.1.min.js"></script>
     <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-    <script>
+    <script type="text/javascript">
+
+        let formDate = function (date) {
+            let year = date.getFullYear();
+            let month = date.getMonth().toString().padStart("0", 2);
+            let day = date.getDate().toString().padStart("0", 2);
+            let hourse = date.getHours().toString().padStart("0", 2);
+            let minuse = date.getMinutes().toString().padStart("0", 2);
+            let sconds = date.getSeconds().toString().padStart("0", 2);
+
+            return `${year}-${month}-${day} ${hourse}:${minuse}:${sconds}`;
+        };
+
         layui.use('table', function () {
             let table = layui.table;
             layer.msg('学生列表页面');
@@ -37,7 +50,38 @@
                 content: './student_add.html' //iframe的url
             });
         }
+
+        $(function () {
+            $.ajax({
+                url: "/contacts/showContacts",
+                type: "get",
+                data: {"state": "0"},
+                statusCode: {
+                    200: function (data) {
+                        console.log(data)
+                        $.each(data, function (index, ele) {
+                            $("#tb01").append("        <tr>\n" +
+                                "            <td>" + (index+1) + "</td>\n" +
+                                "            <td>" + ele.id + "</td>\n" +
+                                "            <td>" + ele.name + "</td>\n" +
+                                "            <td>" + ele.sex + "</td>\n" +
+                                "            <td>" + ele.userName + "</td>\n" +
+                                "            <td>" + formDate(new Date(ele.birthdayDate)) + "</td>\n" +
+                                "            <td>" + formDate(new Date(ele.registrationDate)) + "</td>\n" +
+                                "            <td>" + ele.byProId.name + "</td>\n" +
+                                "            <td>" + ele.byCitId.name + "</td>\n" +
+                                "            <td>" + ele.telephone + "</td>\n" +
+                                "            <td>\n" +
+                                "                <a class=\"layui-btn layui-btn-danger layui-btn-xs\" lay-event=\"del\">删除</a>\n" +
+                                "            </td>\n" +
+                                "        </tr>")
+                        })
+                    }
+                }
+            })
+        })
     </script>
+
 </head>
 <body>
 <div>
@@ -61,25 +105,12 @@
             <th lay-data="{field:'stuEnrolTime', align: 'center'}">入学日期</th>
             <th lay-data="{field:'proId', minWidth: 100, align: 'center'}">所在省</th>
             <th lay-data="{field:'citId', minWidth: 100, align: 'center'}">所在市</th>
+            <th lay-data="{field:'citId', minWidth: 100, align: 'center'}">电话</th>
             <th lay-data="{field:'option', minWidth: 100, align: 'center'}">操作</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>张三</td>
-            <td>女</td>
-            <td>zhangsan</td>
-            <td>2019-02-21</td>
-            <td>1998-07-07</td>
-            <td>江苏省</td>
-            <td>宿迁市</td>
-            <td>
-                <button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail" onclick="openView()">查看手机号码</button>
-                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
-            </td>
-        </tr>
+        <tbody id="tb01">
+
         </tbody>
     </table>
 </div>
