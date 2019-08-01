@@ -4,9 +4,10 @@
 </div>
 <form id="loginForm">
     <div class="form">
-        <input type="email" class="form-field animation a3" placeholder="用户名">
-        <input type="password" class="form-field animation a4" placeholder="密码">
+        <input type="email" name="userName" class="form-field animation a3" placeholder="用户名">
+        <input type="password" name="password" class="form-field animation a4" placeholder="密码">
+        <font color="red" id="f01"></font>
         <p class="animation a5"><a href="">忘记密码</a>&nbsp;<a href="javascript:reverse(true)">注册</a></p>
-        <button type="button" class="animation a6" onclick="commitForm()">登录</button>
+        <button type="button" id="loginButton" class="animation a6" onclick="commitForm()">登录</button>
     </div>
 </form>

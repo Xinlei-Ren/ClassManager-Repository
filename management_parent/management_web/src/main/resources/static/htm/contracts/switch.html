@@ -11,8 +11,53 @@
     <script type="text/javascript" src="../../js/contracts/config.js"></script>
     <script>
         // 页面加载成功
+        function submitReg() {
+            var params = $("#infoForm").serializeJson();
+            $.ajax({
+                url:"/user/addContacts",
+                type:"post",
+                data:params,
+                success:function () {
+                    location.reload("/htm/contracts/switch.html")
+                }
+            })
+        }
+
+        function userNameBlur() {
+            var userName = $("#userName").val();
+            $.ajax({
+                url:"/user/usernameCheck",
+                type:"get",
+                data:{"userName":userName},
+                statusCode: {
+                    201:function (data) {
+                        if (data ==false){
+                            $("#f02").html("用户名不可用")
+                        }else if (data == true) {
+                            $("#f02").html("用户名可用")
+                        }
+                    }
+                }
+
+            })
+        }
+
         function commitForm() {
-            $.ajax({});
+            var params = $("#loginForm").serializeJson();
+            $.ajax({
+                url:"/user/login",
+                type:"get",
+                data:params,
+                statusCode:{
+                    200:function (data) {
+                        if (data ==false){
+                             $("#f01").html("用户名或密码错误")
+                        }else if (data == true) {
+                            location.href="/index.html"
+                        }
+                    }
+                }
+            })
         }
     </script>
 </head>

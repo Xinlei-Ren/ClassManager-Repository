@@ -4,9 +4,9 @@
 </div>
 <form id="infoForm">
     <div class="form">
-        <input type="email" class="form-field animation a3" placeholder="用户名">
-        <input type="password" class="form-field animation a4" placeholder="密码">
+        <input type="email" name="userName" id="userName" class="form-field animation a3" placeholder="用户名" onblur="userNameBlur()"><font id="f02"></font>
+        <input type="password" name="password" class="form-field animation a4" placeholder="密码">
         <p class="animation a5">已有账号？&nbsp;<a href="javascript:reverse(false)">前去登录</a></p>
-        <button type="button" id="submitBtn" class="animation a6">注册</button>
+        <button type="button" id="submitBtn" class="animation a6" onclick="submitReg()">注册</button>
     </div>
 </form>
