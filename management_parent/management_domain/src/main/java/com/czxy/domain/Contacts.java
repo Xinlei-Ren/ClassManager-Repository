@@ -47,12 +47,71 @@ public class Contacts {
     private Integer delStatus;
     /*拼音首字母*/
     private String initial;
+    /*职位*/
+    private Position position;
     /*省份*/
     private Pcd byProId;
     /*城市*/
     private Pcd byCitId;
     /*区县*/
     private Pcd byDisId;
+
+    @Override
+    public String toString() {
+        return "Contacts{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", registrationDate=" + registrationDate +
+                ", sex='" + sex + '\'' +
+                ", birthdayDate=" + birthdayDate +
+                ", srcImg='" + srcImg + '\'' +
+                ", pid=" + pid +
+                ", state=" + state +
+                ", proId=" + proId +
+                ", citId=" + citId +
+                ", disId=" + disId +
+                ", delStatus=" + delStatus +
+                ", initial='" + initial + '\'' +
+                ", position=" + position +
+                ", byProId=" + byProId +
+                ", byCitId=" + byCitId +
+                ", byDisId=" + byDisId +
+                '}';
+    }
+
+    public Contacts(Integer id, String name, String userName, String password, String telephone, Date registrationDate, String sex, Date birthdayDate, String srcImg, Integer pid, Integer state, Integer proId, Integer citId, Integer disId, Integer delStatus, String initial, Position position, Pcd byProId, Pcd byCitId, Pcd byDisId) {
+        this.id = id;
+        this.name = name;
+        this.userName = userName;
+        this.password = password;
+        this.telephone = telephone;
+        this.registrationDate = registrationDate;
+        this.sex = sex;
+        this.birthdayDate = birthdayDate;
+        this.srcImg = srcImg;
+        this.pid = pid;
+        this.state = state;
+        this.proId = proId;
+        this.citId = citId;
+        this.disId = disId;
+        this.delStatus = delStatus;
+        this.initial = initial;
+        this.position = position;
+        this.byProId = byProId;
+        this.byCitId = byCitId;
+        this.byDisId = byDisId;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
 
     public Contacts() {
     }
@@ -85,31 +144,6 @@ public class Contacts {
         this.byProId = byProId;
         this.byCitId = byCitId;
         this.byDisId = byDisId;
-    }
-
-    @Override
-    public String toString() {
-        return "Contacts{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", registrationDate=" + registrationDate +
-                ", sex='" + sex + '\'' +
-                ", birthdayDate=" + birthdayDate +
-                ", srcImg='" + srcImg + '\'' +
-                ", pid=" + pid +
-                ", state=" + state +
-                ", proId=" + proId +
-                ", citId=" + citId +
-                ", disId=" + disId +
-                ", delStatus=" + delStatus +
-                ", initial='" + initial + '\'' +
-                ", byProId=" + byProId +
-                ", byCitId=" + byCitId +
-                ", byDisId=" + byDisId +
-                '}';
     }
 
     public String getInitial() {
