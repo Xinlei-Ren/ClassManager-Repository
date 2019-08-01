@@ -33,8 +33,14 @@ public class ContactsController {
     @PutMapping("/setContacts")
     public ResponseEntity<String>setContacts(Contacts contacts, HttpServletRequest request){
         try {
+            //获取登录信息
             Contacts c = (Contacts) request.getSession().getAttribute("contacts");
+            //解析name 首字母
+            String initial = PinYinController.getPinYin(contacts.getName()).substring(0, 1).toUpperCase();
+            //赋值
             contacts.setId(c.getId());
+            contacts.setInitial(initial);
+            //修改
             contactsService.setContacts(contacts);
             return new ResponseEntity<>("完善成功",HttpStatus.OK);
         } catch (Exception e) {

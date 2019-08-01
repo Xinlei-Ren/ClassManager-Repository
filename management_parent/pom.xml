@@ -74,6 +74,12 @@
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.1.10</version>
         </dependency>
+<!--        //文字解析器-->
+        <dependency>
+            <groupId>com.belerweb</groupId>
+            <artifactId>pinyin4j</artifactId>
+            <version>2.5.0</version>
+        </dependency>
 
         <!-- 热部署 -->
         <dependency>
@@ -82,5 +88,6 @@
             <!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
             <optional>true</optional>
         </dependency>
+
     </dependencies>
 </project>
