@@ -1,5 +1,4 @@
 package com.czxy.controller;
-
 import com.czxy.domain.Pcd;
 import com.czxy.service.PcdService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
-
 /**
  * @author xixilidemeilichuanshuo
  * @version 1.0
@@ -23,10 +20,6 @@ public class PcdController {
     /*城市服务*/
     @Autowired
     private PcdService pcdService;
-
-
-
-
 
     /**
      * 查询所有省份信息
