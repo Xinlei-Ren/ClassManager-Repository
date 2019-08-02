@@ -1,5 +1,7 @@
 package com.czxy.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -26,10 +28,12 @@ public class Contacts {
     /*联系方式*/
     private String telephone;
     /*注册时间*/
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date registrationDate;
     /*性别*/
     private String sex;
     /*生日*/
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date birthdayDate;
     /*头像*/
     private String srcImg;
