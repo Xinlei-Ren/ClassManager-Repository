@@ -37,6 +37,17 @@
                 content: './teacher_add.html' //iframe的url
             });
         }
+        function userdelete(id){
+            $.ajax({
+                url:"/contacts/deleteContacts",
+                type:"put",
+                data:{"id":id},
+                success:function () {
+                    location.reload("/htm/teacher/teacher_list.html")
+                }
+            })
+
+        }
 
         $(function () {
             $.ajax({
@@ -52,10 +63,10 @@
             <td>${ele.name}</td>
             <td>${ele.telephone}</td>
             <td>${ele.byProId.name}${ele.byCitId.name}</td>
-            <td>主讲教师</td>
+            <td>${ele.position.pName}</td>
             <td>
                 <button class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail" onclick="openView()">查看</button>
-                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"  onclick="userdelete(${ele.id})">删除</a>
             </td>
         </tr>`)
                         })

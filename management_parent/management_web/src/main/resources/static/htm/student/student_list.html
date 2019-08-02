@@ -50,6 +50,17 @@
                 content: './student_add.html' //iframe的url
             });
         }
+        function userdelete(id){
+            $.ajax({
+                url:"/contacts/deleteContacts",
+                type:"put",
+                data:{"id":id},
+                success:function () {
+                    location.reload("/htm/student/student_list.html")
+                }
+            })
+
+        }
 
         $(function () {
             $.ajax({
@@ -72,7 +83,7 @@
                                 "            <td>" + ele.byCitId.name + "</td>\n" +
                                 "            <td>" + ele.telephone + "</td>\n" +
                                 "            <td>\n" +
-                                "                <a class=\"layui-btn layui-btn-danger layui-btn-xs\" lay-event=\"del\">删除</a>\n" +
+                                "                <a class=\"layui-btn layui-btn-danger layui-btn-xs\" lay-event=\"del\" onclick='userdelete("+ele.id+")'>删除</a>\n" +
                                 "            </td>\n" +
                                 "        </tr>")
                         })
