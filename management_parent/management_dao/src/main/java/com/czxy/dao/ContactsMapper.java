@@ -25,6 +25,7 @@ public interface ContactsMapper extends Mapper<Contacts> {
             @Result(property = "byProId",one = @One(select = "com.czxy.dao.PcdMapper.findPcdById"),column = "pro_id"),
             @Result(property = "byCitId",one = @One(select = "com.czxy.dao.PcdMapper.findPcdById"),column = "cit_id"),
             @Result(property = "byDisId",one = @One(select = "com.czxy.dao.PcdMapper.findPcdById"),column = "dis_id"),
+            @Result(property = "position",one = @One(select = "com.czxy.dao.PositionMapper.selectByPrimaryKey"),column = "pid"),
             @Result(property = "proId",column = "pro_id"),
             @Result(property = "citId",column = "cit_id"),
             @Result(property = "disId",column = "dis_id"),

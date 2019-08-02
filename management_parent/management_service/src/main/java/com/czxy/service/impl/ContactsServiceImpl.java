@@ -6,9 +6,7 @@ import com.czxy.service.ContactsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import tk.mybatis.mapper.entity.Example;
 
-import javax.xml.ws.soap.Addressing;
 import java.util.List;
 
 /**
@@ -60,6 +58,6 @@ public class ContactsServiceImpl implements ContactsService {
      */
     @Override
     public void setContacts(Contacts contacts) {
-        contactsMapper.updateByPrimaryKey(contacts);
+        contactsMapper.updateByPrimaryKeySelective(contacts);
     }
 }

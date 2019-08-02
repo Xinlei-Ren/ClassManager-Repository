@@ -16,16 +16,16 @@ import javax.annotation.Resource;
 @Configuration
 public class SpringMvcConfig implements WebMvcConfigurer {
 
-    @Resource
-    private UserInterceptor userInterceptor;
-
-    /**
-     * 注册拦截器
-     * @param registry
-     */
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        InterceptorRegistration interceptorRegistration = registry.addInterceptor(userInterceptor);
-        interceptorRegistration.addPathPatterns("/**");
-    }
+//    @Resource
+//    private UserInterceptor userInterceptor;
+//
+//    /**
+//     * 注册拦截器
+//     * @param registry
+//     */
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        InterceptorRegistration interceptorRegistration = registry.addInterceptor(userInterceptor);
+//        interceptorRegistration.addPathPatterns("/**");
+//    }
 }
