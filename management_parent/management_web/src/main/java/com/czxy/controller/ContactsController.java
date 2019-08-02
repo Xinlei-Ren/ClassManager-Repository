@@ -1,7 +1,9 @@
 package com.czxy.controller;
 
 import com.czxy.domain.Contacts;
+import com.czxy.domain.ContactsVo;
 import com.czxy.service.ContactsService;
+import com.czxy.service.impl.ContactsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +30,8 @@ public class ContactsController {
     /*联系服务*/
     @Autowired
     private ContactsService contactsService;
-
+    @Autowired
+    private ContactsServiceImpl contactsServicel;
     /**
      * 完善信息
      *
@@ -45,7 +48,7 @@ public class ContactsController {
             String initial = PinYinController.getPinYin(contacts.getName()).substring(0, 1).toUpperCase();
             //赋值
             contacts.setId(c.getId());
-            contacts.setInitial(initial);
+//            contacts.setInitial(initial);
             //获取图片路径
             String img = file.getOriginalFilename();
             //保存图片
@@ -109,6 +112,32 @@ public class ContactsController {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+    /**
+     * 不要动
+     *
+     */
+    @GetMapping("findAll")
+    public ResponseEntity<List<Contacts>> findAll(HttpServletRequest request) {
+        try {
+            Contacts list = (Contacts) request.getSession().getAttribute("contacts");
+            List<Contacts> all = contactsServicel.findAll(list.getId());
+            return new ResponseEntity<>(all, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    /**
+     * 不要动
+     *
+     */
+    @GetMapping
+    public ResponseEntity<List<ContactsVo>> findLoginid(HttpServletRequest request) {
+        Contacts list = (Contacts) request.getSession().getAttribute("contacts");
+        List<ContactsVo> loginid = contactsServicel.findLoginid(list.getId());
+        return new ResponseEntity<>(loginid, HttpStatus.OK);
     }
 
 }

@@ -1,7 +1,5 @@
 package com.czxy.domain;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -28,12 +26,10 @@ public class Contacts {
     /*联系方式*/
     private String telephone;
     /*注册时间*/
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date registrationDate;
     /*性别*/
     private String sex;
     /*生日*/
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date birthdayDate;
     /*头像*/
     private String srcImg;
@@ -49,16 +45,23 @@ public class Contacts {
     private Integer disId;
     /*删除状态*/
     private Integer delStatus;
-    /*拼音首字母*/
-    private String initial;
-    /*职位*/
-    private Position position;
     /*省份*/
     private Pcd byProId;
     /*城市*/
     private Pcd byCitId;
     /*区县*/
     private Pcd byDisId;
+
+    public Contacts() {
+    }
+
+    public Integer getDelStatus() {
+        return delStatus;
+    }
+
+    public void setDelStatus(Integer delStatus) {
+        this.delStatus = delStatus;
+    }
 
     @Override
     public String toString() {
@@ -78,84 +81,10 @@ public class Contacts {
                 ", citId=" + citId +
                 ", disId=" + disId +
                 ", delStatus=" + delStatus +
-                ", initial='" + initial + '\'' +
-                ", position=" + position +
                 ", byProId=" + byProId +
                 ", byCitId=" + byCitId +
                 ", byDisId=" + byDisId +
                 '}';
-    }
-
-    public Contacts(Integer id, String name, String userName, String password, String telephone, Date registrationDate, String sex, Date birthdayDate, String srcImg, Integer pid, Integer state, Integer proId, Integer citId, Integer disId, Integer delStatus, String initial, Position position, Pcd byProId, Pcd byCitId, Pcd byDisId) {
-        this.id = id;
-        this.name = name;
-        this.userName = userName;
-        this.password = password;
-        this.telephone = telephone;
-        this.registrationDate = registrationDate;
-        this.sex = sex;
-        this.birthdayDate = birthdayDate;
-        this.srcImg = srcImg;
-        this.pid = pid;
-        this.state = state;
-        this.proId = proId;
-        this.citId = citId;
-        this.disId = disId;
-        this.delStatus = delStatus;
-        this.initial = initial;
-        this.position = position;
-        this.byProId = byProId;
-        this.byCitId = byCitId;
-        this.byDisId = byDisId;
-    }
-
-    public Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
-    }
-
-    public Contacts() {
-    }
-
-    public Integer getDelStatus() {
-        return delStatus;
-    }
-
-    public void setDelStatus(Integer delStatus) {
-        this.delStatus = delStatus;
-    }
-
-    public Contacts(Integer id, String name, String userName, String password, String telephone, Date registrationDate, String sex, Date birthdayDate, String srcImg, Integer pid, Integer state, Integer proId, Integer citId, Integer disId, Integer delStatus, String initial, Pcd byProId, Pcd byCitId, Pcd byDisId) {
-        this.id = id;
-        this.name = name;
-        this.userName = userName;
-        this.password = password;
-        this.telephone = telephone;
-        this.registrationDate = registrationDate;
-        this.sex = sex;
-        this.birthdayDate = birthdayDate;
-        this.srcImg = srcImg;
-        this.pid = pid;
-        this.state = state;
-        this.proId = proId;
-        this.citId = citId;
-        this.disId = disId;
-        this.delStatus = delStatus;
-        this.initial = initial;
-        this.byProId = byProId;
-        this.byCitId = byCitId;
-        this.byDisId = byDisId;
-    }
-
-    public String getInitial() {
-        return initial;
-    }
-
-    public void setInitial(String initial) {
-        this.initial = initial;
     }
 
     public Contacts(Integer id, String name, String userName, String password, String telephone, Date registrationDate, String sex, Date birthdayDate, String srcImg, Integer pid, Integer state, Integer proId, Integer citId, Integer disId, Integer delStatus, Pcd byProId, Pcd byCitId, Pcd byDisId) {

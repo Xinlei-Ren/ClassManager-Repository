@@ -39,4 +39,8 @@ public interface ContactsMapper extends Mapper<Contacts> {
      */
     @Update("update contacts set del_status=1 where id=#{id}")
     void setContactsById(@Param("id")Integer id);
+   @Select("select * from contacts where id!=#{id}")
+    List<Contacts> findAll(int id);
+
+
 }
